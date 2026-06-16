@@ -1558,15 +1558,13 @@
       playHeartSound();
 
       if (state.heartClickCount === 20) {
-        // Create burst-style confetti explosion before showing the secret message
-        for(let i=0; i<60; i++){
+        const secret = document.getElementById('secretMessage');
+        secret.style.display = 'block';
+        secret.scrollIntoView({behavior:'smooth',block:'center'});
+
+        for(let i=0;i<60;i++){
           setTimeout(()=>createConfetti(event), i*50);
         }
-        
-        // Show secret message after the burst completes
-        setTimeout(() => {
-          document.getElementById('secretMessage').style.display = 'block';
-        }, 3000);
       }
     }
 
